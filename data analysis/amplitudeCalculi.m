@@ -1,4 +1,4 @@
-function [f,amps]=dynamicsCalculi(sweepData)
+function [f,amps]=amplitudeCalculi(sweepData)
 [measNumber,~]=size(sweepData);
 f=zeros(1,measNumber);
 amps=zeros(1,measNumber);
@@ -9,7 +9,7 @@ for measIndex=1:measNumber
     yout=measurementData{2};
     xin=measurementData{3};
     yin=measurementData{4};
-    frecuency=measurementData{5};
+    frequency=measurementData{5};
     inputAmplitude=max(yin)-min(yin);
     outputAmplitude=max(yout)-min(yout);
     gain=20*log10(outputAmplitude/inputAmplitude);

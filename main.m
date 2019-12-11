@@ -1,10 +1,11 @@
 function main
-[fileName,filePath]=uigetfile('*.mat','Seleccione archivo de respaldo', ...
-    'MultiSelect', 'off');
+[fileName,filePath]=uiputfile('*.mat','Seleccione archivo de respaldo');
+
 fileAddress=fullfile(filePath,fileName);
-cd(fileAddress);
-responseChannel=input('Seleccione canal para la respuesta del filtro');
+cd(filePath);
+responseChannel=input('Seleccione canal para la respuesta del filtro: ');
+
 [sweepData]=frequencySweep(fileAddress,responseChannel);
-[f,amps]=dynamicsCalculi(sweepData);
+[f,amps]=amplitudeCalculi(sweepData);
 generateBode(f,amps);
 end
