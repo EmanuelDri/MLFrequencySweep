@@ -1,5 +1,9 @@
-function goToVoltage(offset,channel,scale)
+function goToVoltage(offset,channel,scale,varargin)
+if~isempty(varargin)
+deviceObj=varargin{1};
+else
 deviceObj=connectTektronixOscilloscope();
+end
 % set(deviceObj.Acquisition(1), 'Delay', tp+270e-6);
 
 tektronixGotoVoltageLevel(offset,channel,scale,deviceObj);
